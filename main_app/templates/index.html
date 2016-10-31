@@ -1,0 +1,56 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Twistong</title>
+                <link rel="stylesheet" href="{% static 'vendor/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" />
+                <link rel="stylesheet" href="{% static 'style.css' %}" />
+        </head>
+        <body>
+                <div class="navbar navbar-default navbar-static-top text-center">
+                        <a href="/">
+                                <img src="{% static 'images/twistong.png' %}" alt="Twistong">
+                        </a>
+                </div>
+                <div class="container" role="main">
+                        <div class="twistong panel panel-default">
+                                {% for twisters in twister %}
+                                <div class="panel-heading">
+                                        <h2 class="panel-title">{{ twisters.content_id }}</h2>
+                                        <p class="panel-difficulty">
+                                            {% if twisters.difficulty == "1" %}
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                            {% elif twisters.difficulty == "2" %}
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                            {% elif twisters.difficulty == "3" %}
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                            {% elif twisters.difficulty == "4" %}
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                            {% elif twisters.difficulty == "5" %}
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                                <img src="{% static 'images/iconStarGold.png' %}" alt="star">
+                                            {% endif %}
+                                        </p>
+                                </div>
+                                <a href="/{{ twisters.id }}/">
+                                <div class="panel-body">
+                                        <p>
+                                        {{ twisters.content }}
+                                        </p>
+                                </div>
+                                </a>
+                                {% endfor %}
+                        </div>
+                </div>
+        </body>
+</html>
